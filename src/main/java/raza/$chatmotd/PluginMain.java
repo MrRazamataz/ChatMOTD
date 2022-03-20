@@ -47,6 +47,19 @@ public class PluginMain extends JavaPlugin implements Listener {
 
 	@Override
 	public boolean onCommand(CommandSender commandSender, Command command, String label, String[] commandArgs) {
+		if (command.getName().equalsIgnoreCase("motd")) {
+			try {
+				for (Object FINAL_loopValue1 : java.nio.file.Files.readAllLines(
+						new File(String.valueOf(PluginMain.getInstance().getDataFolder()), "chatmotd.txt").toPath(),
+						java.nio.charset.StandardCharsets.UTF_8)) {
+					PluginMain.getInstance().getLogger()
+							.info(ChatColor.translateAlternateColorCodes('&', String.valueOf(FINAL_loopValue1)));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return true;
+		}
 		if (command.getName().equalsIgnoreCase("setchatmotd")) {
 			Object $2de0fd60f64bec84460174f6876c3f09 = null;
 			Object $3b8bde443fbeda39d6ad8708c40415aa = null;
@@ -63,6 +76,7 @@ public class PluginMain extends JavaPlugin implements Listener {
 						java.nio.charset.StandardCharsets.UTF_8, java.nio.file.StandardOpenOption.WRITE);
 				commandSender.sendMessage(("The ChatMOTD has been set to: " + ChatColor
 						.translateAlternateColorCodes('&', String.valueOf($2de0fd60f64bec84460174f6876c3f09))));
+				org.bukkit.Bukkit.broadcastMessage(String.valueOf($2de0fd60f64bec84460174f6876c3f09));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
