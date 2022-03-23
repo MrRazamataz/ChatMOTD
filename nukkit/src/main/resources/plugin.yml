@@ -1,0 +1,17 @@
+name: "ChatMOTD"
+version: "1.1.0"
+main: "raza.$chatmotd.PluginMain"
+api: ["1.0.13"]
+authors: [MrRazamataz]
+description: "Set an MOTD for your chat player join message."
+prefix: "ChatMOTD"
+website: "mrrazamataz.ga"
+commands:
+  setchatmotd:
+    aliases: [setmotd]
+    permission: "chatmotd.set"
+    permission-message: "You do not have the permission `chatmotd.set`"
+    usage: "/setchatmotd [message]"
+  motd:
+    aliases: [showmotd]
+permissions:
