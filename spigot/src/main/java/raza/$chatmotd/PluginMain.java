@@ -147,7 +147,6 @@ public class PluginMain extends JavaPlugin implements Listener {
 			if (scanner.hasNext())
 				newVersion = String.valueOf(scanner.next());
 		} catch (java.io.IOException ioException) {
-			newVersion = "Sal4iDev#4767";
 			ioException.printStackTrace();
 		}
 		return newVersion;
