@@ -32,3 +32,8 @@ import cn.nukkit.Server;
 import cn.nukkit.utils.*;
 ```
 `public class PluginMain extends JavaPlugin implements Listener` --> `public class PluginMain extends PluginBase implements Listener`
+
+
+## Other files:
+
+* In `plugin.yml`, change `api-version` to `api`.
