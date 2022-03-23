@@ -1,3 +1,5 @@
 # ChatMOTD
 
-A download link can be found [right here (its on spigotmc)](https://www.spigotmc.org/resources/chatmotd.100844/) or download that jar file in the files above.
+
+* [Spigot download](https://www.spigotmc.org/resources/chatmotd.100844/)
+* [Nukkit download](https://cloudburstmc.org/resources/chatmotd.794/)
