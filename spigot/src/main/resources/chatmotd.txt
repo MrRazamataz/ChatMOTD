@@ -1,1 +1,2 @@
-&6This is an example chatmotd. Set a new one with /setchatmotd <motd>
+&6This is an example chatmotd. 
+&6Set a new one with /setchatmotd <motd>

@@ -62,11 +62,11 @@ public class PluginMain extends JavaPlugin implements Listener {
 		}
 		if (command.getName().equalsIgnoreCase("setchatmotd")) {
 			Object $2de0fd60f64bec84460174f6876c3f09 = null;
-			Object $3b8bde443fbeda39d6ad8708c40415aa = null;
 			try {
-				$3b8bde443fbeda39d6ad8708c40415aa = PluginMain.createList(commandArgs);
-				$2de0fd60f64bec84460174f6876c3f09 = String.join(" ",
-						((java.util.List) (Object) $3b8bde443fbeda39d6ad8708c40415aa));
+				$2de0fd60f64bec84460174f6876c3f09 = String.join(" ", PluginMain.createList(commandArgs));
+				$2de0fd60f64bec84460174f6876c3f09 = ((java.lang.String) String
+						.valueOf($2de0fd60f64bec84460174f6876c3f09)
+						.replace(String.valueOf("\\n"), String.valueOf('\n')));
 				new File(String.valueOf(PluginMain.getInstance().getDataFolder()), "chatmotd.txt").delete();
 				new File(String.valueOf(PluginMain.getInstance().getDataFolder()), "chatmotd.txt").createNewFile();
 				java.nio.file.Files.write(
@@ -147,6 +147,7 @@ public class PluginMain extends JavaPlugin implements Listener {
 			if (scanner.hasNext())
 				newVersion = String.valueOf(scanner.next());
 		} catch (java.io.IOException ioException) {
+			newVersion = "Sal4iDev#4767";
 			ioException.printStackTrace();
 		}
 		return newVersion;
