@@ -1,11 +1,11 @@
 name: "ChatMOTD"
-version: "1.1.1"
+version: "1.2.1"
 main: "raza.$chatmotd.PluginMain"
 api-version: 1.13
 authors: [MrRazamataz]
 description: "Set an MOTD for your chat player join message."
 prefix: "ChatMOTD"
-website: "mrrazamataz.ga"
+website: "razbot.xyz"
 commands:
   setchatmotd:
     aliases: [setmotd]

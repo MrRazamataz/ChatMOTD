@@ -16,11 +16,14 @@ public class PluginMain extends JavaPlugin implements Listener {
 
 	private static PluginMain instance;
 
+	public boolean showOnJoin = true;
+
 	@Override
 	public void onEnable() {
 		instance = this;
 		getServer().getPluginManager().registerEvents(this, this);
 		createResourceFile("chatmotd.txt");
+		createResourceFile("config.yml");
 		new Metrics(PluginMain.getInstance(), ((int) (14685d)));
 		try {
 			logMotdMessages();
@@ -34,7 +37,12 @@ public class PluginMain extends JavaPlugin implements Listener {
 		if (new File(getInstance().getDataFolder(), "chatmotd.json").exists()) {
 			getLogger().info("JSON mode is enabled, you cannot edit the motd with the setchatmotd command.");
 		}
+		// read config.yml and check if disable_motd_on_join is true
+		if (getConfig().getBoolean("disable_motd_on_join")) {
+			getLogger().info("The MOTD will NOT be displayed to players on join as disable_motd_on_join is set to true in config.yml.");
+			showOnJoin = false;
 		}
+	}
 
 	@Override
 	public void onDisable() {
@@ -82,6 +90,9 @@ public class PluginMain extends JavaPlugin implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerJoin(PlayerJoinEvent event) {
+		if (!showOnJoin) {
+			return;
+		}
 		try {
 			sendMotdToPlayer(event.getPlayer());
 		} catch (Exception e) {
